@@ -16,6 +16,7 @@ interface GlowingEffectProps {
   movementDuration?: number;
   borderWidth?: number;
 }
+
 const GlowingEffect = memo(
   ({
     blur = 0,
@@ -32,9 +33,10 @@ const GlowingEffect = memo(
     const containerRef = useRef<HTMLDivElement>(null);
     const lastPosition = useRef({ x: 0, y: 0 });
     const animationFrameRef = useRef<number>(0);
+    const isTouchDevice = useRef(false);
 
     const handleMove = useCallback(
-      (e?: MouseEvent | { x: number; y: number }) => {
+      (e?: MouseEvent | TouchEvent | { x: number; y: number }) => {
         if (!containerRef.current) return;
 
         if (animationFrameRef.current) {
@@ -46,11 +48,29 @@ const GlowingEffect = memo(
           if (!element) return;
 
           const { left, top, width, height } = element.getBoundingClientRect();
-          const mouseX = e?.x ?? lastPosition.current.x;
-          const mouseY = e?.y ?? lastPosition.current.y;
+          
+          // Handle different event types
+          let mouseX: number;
+          let mouseY: number;
 
           if (e) {
+            if ('touches' in e) {
+              // Touch event
+              mouseX = e.touches[0].clientX;
+              mouseY = e.touches[0].clientY;
+            } else if ('clientX' in e) {
+              // Mouse event
+              mouseX = e.clientX;
+              mouseY = e.clientY;
+            } else {
+              // Custom object with x, y properties
+              mouseX = e.x;
+              mouseY = e.y;
+            }
             lastPosition.current = { x: mouseX, y: mouseY };
+          } else {
+            mouseX = lastPosition.current.x;
+            mouseY = lastPosition.current.y;
           }
 
           const center = [left + width * 0.5, top + height * 0.5];
@@ -100,13 +120,39 @@ const GlowingEffect = memo(
     useEffect(() => {
       if (disabled) return;
 
+      // Check if device supports touch
+      isTouchDevice.current = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      
       const handleScroll = () => handleMove();
       const handlePointerMove = (e: PointerEvent) => handleMove(e);
-
+      const handleTouchMove = (e: TouchEvent) => {
+        if (e.touches.length > 0) {
+          handleMove(e);
+        }
+      };
+      
+      // Add event listeners based on device capability
       window.addEventListener("scroll", handleScroll, { passive: true });
-      document.body.addEventListener("pointermove", handlePointerMove, {
-        passive: true,
-      });
+      
+      if (isTouchDevice.current) {
+        document.body.addEventListener("touchmove", handleTouchMove, {
+          passive: true,
+        });
+      } else {
+        document.body.addEventListener("pointermove", handlePointerMove, {
+          passive: true,
+        });
+      }
+
+      // For hybrid devices that support both touch and mouse
+      if (window.matchMedia("(pointer: coarse) and (pointer: fine)").matches) {
+        document.body.addEventListener("pointermove", handlePointerMove, {
+          passive: true,
+        });
+        document.body.addEventListener("touchmove", handleTouchMove, {
+          passive: true,
+        });
+      }
 
       return () => {
         if (animationFrameRef.current) {
@@ -114,6 +160,29 @@ const GlowingEffect = memo(
         }
         window.removeEventListener("scroll", handleScroll);
         document.body.removeEventListener("pointermove", handlePointerMove);
+        document.body.removeEventListener("touchmove", handleTouchMove);
+      };
+    }, [handleMove, disabled]);
+
+    // Initial setup for touch devices
+    useEffect(() => {
+      if (disabled) return;
+      
+      // For touch devices, we'll show the glow effect on touch start
+      const handleTouchStart = (e: TouchEvent) => {
+        if (e.touches.length > 0) {
+          handleMove(e);
+        }
+      };
+
+      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        document.body.addEventListener("touchstart", handleTouchStart, {
+          passive: true,
+        });
+      }
+
+      return () => {
+        document.body.removeEventListener("touchstart", handleTouchStart);
       };
     }, [handleMove, disabled]);
 
