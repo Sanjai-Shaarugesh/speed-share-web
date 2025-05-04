@@ -22,6 +22,7 @@ export default function NavbarDemo() {
   const aboutRef = useRef(null);
   const featuresRef = useRef(null);
   const contactRef = useRef(null);
+  const footerRef = useRef(null);
   
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -46,9 +47,9 @@ export default function NavbarDemo() {
     },
     { 
       name: "Contact", 
-      link: "#contact", 
+      link: "#footer", 
       isScroll: true, 
-      onClick: () => scrollToSection(contactRef) 
+      onClick: () => scrollToSection(footerRef) 
     },
 
     { 
@@ -92,7 +93,8 @@ export default function NavbarDemo() {
           <CustomNavItems items={navItems} />
           <div className="flex items-center gap-4">
             <NavbarButton variant="secondary">Login</NavbarButton>
-            <NavbarButton variant="primary">Book a call</NavbarButton>
+            <a href="https://speed-shares.vercel.app/" target="_balnk">
+            <NavbarButton variant="primary">Visite Speed-share</NavbarButton></a>
           </div>
         </NavBody>
 
@@ -130,12 +132,14 @@ export default function NavbarDemo() {
                 className="w-full">
                 Login
               </NavbarButton>
+              <a href="https://speed-shares.vercel.app/" target="_balnk">
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="primary"
                 className="w-full">
-                Book a call
-              </NavbarButton>
+                Visite Speed-share
+              </NavbarButton></a>
+              
             </div>
           </MobileNavMenu>
         </MobileNav>
@@ -154,7 +158,10 @@ export default function NavbarDemo() {
      <FeaturesSectionDemo/>
      </div>
       
+      <div ref={footerRef} id="footer">
       <FooterSection/>
+      </div>
+     
       
       
     </div>

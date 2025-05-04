@@ -16,12 +16,14 @@ export default function BackgroundLinesDemo() {
         </p>
         
         <div className="mt-8 sm:mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="w-full sm:w-auto px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors">
+          <a href="https://speed-shares.vercel.app/" target="_blank"><button className="w-full sm:w-auto px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors">
             Get Started
-          </button>
-          <button className="w-full sm:w-auto px-6 py-3 rounded-lg border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 font-medium transition-colors">
+          </button></a>
+          
+          <a href="https://github.com/Sanjai-Shaarugesh/Speed-share" target="_blank"><button className="w-full sm:w-auto px-6 py-3 rounded-lg border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 font-medium transition-colors">
             Learn More
-          </button>
+          </button></a>
+          
         </div>
       </div>
     </BackgroundLines>

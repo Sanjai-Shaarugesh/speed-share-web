@@ -1,20 +1,17 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { cn } from "../lib/utils";
 import createGlobe from "cobe";
-import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
-import { IconBrandYoutubeFilled } from "@tabler/icons-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "../../@shadcn/ui/components/ui/button";
-import { RippleButton } from './animate-ui/buttons/ripple';
 import { LiquidButton } from './animate-ui/buttons/liquid';
-import {ArrowRight} from 'lucide-react';
 
 export default function FeaturesSectionDemo() {
   const features = [
     {
       title: "Speed ⚡",
       description:
-        "share you're file with you're friends any where at any time with lightning speed ⚡",
+        "Share your file with your friends anywhere at any time with lightning speed ⚡",
       skeleton: <SkeletonOne />,
       className:
         "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800",
@@ -22,57 +19,59 @@ export default function FeaturesSectionDemo() {
     {
       title: "Security 🔒",
       description:
-        "Share you're files with you're friends with end-end encryption",
+        "Share your files with your friends with end-to-end encryption",
       skeleton: <SkeletonTwo />,
       className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
     },
     {
       title: "How to use",
       description:
-        "To know how to use watch this video 🎬",
+        "To know how to use, watch this video 🎬",
       skeleton: <SkeletonThree />,
       className:
         "col-span-1 lg:col-span-3 lg:border-r dark:border-neutral-800",
     },
     {
-      title: "Share you're files with in seconds without any network dependencies 🛜 ",
+      title: "Share your files in seconds without any network dependencies 🛜",
       description:
-        "share you're files anyone to anywhere without depending on same network to connect to share 🔗",
+        "Share your files with anyone, anywhere, without depending on the same network to connect 🔗",
       skeleton: <SkeletonFour />,
       className: "col-span-1 lg:col-span-3 border-b lg:border-none",
     },
   ];
+
   return (
     <div className="relative z-20 py-6 lg:py-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="px-4 sm:px-8">
         <h4
-          className="text-2xl sm:text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+          className="text-2xl sm:text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white"
+        >
           Packed with thousands of features
         </h4>
-        <div className='mx-auto flex flex-col sm:flex-row justify-center gap-4 my-6 sm:my-10 max-w-md sm:max-w-lg'> 
-          <a href="APK/Speed-share.apk" download className="w-full sm:w-auto"> 
+        <div className="mx-auto flex flex-col sm:flex-row justify-center gap-4 my-6 sm:my-10 max-w-md sm:max-w-lg">
+          <a href="APK/Speed-share.apk" download className="w-full sm:w-auto">
             <Button className="w-full sm:w-auto flex items-center justify-center gap-2">
-              Download for Android 
+              Download for Android
               <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
-                <path fill="#30dc80" d="M24,14.088C11.427,14.088,1.108,23.716,0,36h48C46.892,23.716,36.573,14.088,24,14.088z M33.179,27.079c0-1.104,0.895-1.999,1.999-1.999c1.104,0,1.999,0.895,1.999,1.999c0,1.104-0.895,1.999-1.999,1.999	C34.074,29.078,33.179,28.183,33.179,27.079z M12.822,29.078c-1.104,0-1.999-0.895-1.999-1.999c0-1.104,0.895-1.999,1.999-1.999	s1.999,0.895,1.999,1.999C14.821,28.183,13.926,29.078,12.822,29.078z"></path><path fill="#30dc80" d="M34.038,19.313c-0.14,0-0.281-0.035-0.41-0.11c-0.393-0.227-0.527-0.729-0.301-1.122l5.197-9.008	c0.227-0.394,0.729-0.529,1.122-0.301c0.393,0.227,0.527,0.729,0.301,1.122l-5.197,9.008C34.598,19.166,34.322,19.313,34.038,19.313	z"></path><path fill="#30dc80" d="M13.962,19.313c-0.284,0-0.56-0.148-0.712-0.411L8.054,9.894C7.827,9.501,7.962,8.999,8.354,8.772	c0.392-0.228,0.895-0.093,1.122,0.301l5.197,9.008c0.227,0.394,0.092,0.896-0.301,1.122C14.243,19.278,14.102,19.313,13.962,19.313z"></path>
+                <path fill="#30dc80" d="M24,14.088C11.427,14.088,1.108,23.716,0,36h48C46.892,23.716,36.573,14.088,24,14.088z M33.179,27.079c0-1.104,0.895-1.999,1.999-1.999c1.104,0,1.999,0.895,1.999,1.999c0,1.104-0.895,1.999-1.999,1.999C34.074,29.078,33.179,28.183,33.179,27.079z M12.822,29.078c-1.104,0-1.999-0.895-1.999-1.999c0-1.104,0.895-1.999,1.999-1.999s1.999,0.895,1.999,1.999C14.821,28.183,13.926,29.078,12.822,29.078z"></path><path fill="#30dc80" d="M34.038,19.313c-0.14,0-0.281-0.035-0.41-0.11c-0.393-0.227-0.527-0.729-0.301-1.122l5.197-9.008c0.227-0.394,0.729-0.529,1.122-0.301c0.393,0.227,0.527,0.729,0.301,1.122l-5.197,9.008C34.598,19.166,34.322,19.313,34.038,19.313z"></path><path fill="#30dc80" d="M13.962,19.313c-0.284,0-0.56-0.148-0.712-0.411L8.054,9.894C7.827,9.501,7.962,8.999,8.354,8.772c0.392-0.228,0.895-0.093,1.122,0.301l5.197,9.008c0.227,0.394,0.092,0.896-0.301,1.122C14.243,19.278,14.102,19.313,13.962,19.313z"></path>
               </svg>
             </Button>
-          </a> 
-          <a href='https://speed-shares.vercel.app/' target="_blank" className="w-full sm:w-auto">
+          </a>
+          <a href="https://speed-shares.vercel.app/" target="_blank" className="w-full sm:w-auto">
             <LiquidButton className="w-full sm:w-auto flex items-center justify-center gap-2">
-              Visite Speed-share <ArrowRight />
+              Visit Speed-share <ArrowRight />
             </LiquidButton>
           </a>
         </div>
         <p
-          className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+          className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
+        >
           From Image generation to video generation, Everything AI has APIs for
           literally everything. It can even create this website copy for you.
         </p>
       </div>
       <div className="relative">
-        <div
-          className="grid grid-cols-1 lg:grid-cols-6 mt-8 sm:mt-12 xl:border rounded-md dark:border-neutral-800">
+        <div className="grid grid-cols-1 lg:grid-cols-6 mt-8 sm:mt-12 xl:border rounded-md dark:border-neutral-800">
           {features.map((feature) => (
             <FeatureCard key={feature.title} className={feature.className}>
               <FeatureTitle>{feature.title}</FeatureTitle>
@@ -86,10 +85,7 @@ export default function FeaturesSectionDemo() {
   );
 }
 
-const FeatureCard = ({
-  children,
-  className
-}) => {
+const FeatureCard = ({ children, className }) => {
   return (
     <div className={cn(`p-4 sm:p-8 relative overflow-hidden`, className)}>
       {children}
@@ -97,27 +93,23 @@ const FeatureCard = ({
   );
 };
 
-const FeatureTitle = ({
-  children
-}) => {
+const FeatureTitle = ({ children }) => {
   return (
-    <p
-      className="max-w-5xl mx-auto text-left tracking-tight text-black dark:text-white text-lg sm:text-xl md:text-2xl md:leading-snug">
+    <p className="max-w-5xl mx-auto text-left tracking-tight text-black dark:text-white text-lg sm:text-xl md:text-2xl md:leading-snug">
       {children}
     </p>
   );
 };
 
-const FeatureDescription = ({
-  children
-}) => {
+const FeatureDescription = ({ children }) => {
   return (
     <p
       className={cn(
         "text-sm md:text-base max-w-4xl text-left mx-auto",
         "text-neutral-500 text-center font-normal dark:text-neutral-300",
         "text-left max-w-sm mx-0 md:text-sm my-2"
-      )}>
+      )}
+    >
       {children}
     </p>
   );
@@ -126,22 +118,19 @@ const FeatureDescription = ({
 export const SkeletonOne = () => {
   return (
     <div className="relative flex py-4 sm:py-8 px-2 gap-4 sm:gap-10 h-full">
-      <div
-        className="w-full p-2 sm:p-5 mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full">
+      <div className="w-full p-2 sm:p-5 mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full">
         <div className="flex flex-1 w-full h-full flex-col space-y-2">
-          {/* TODO */}
           <img
             src="./ss.png"
             alt="header"
             width={800}
             height={800}
-            className="h-full w-full aspect-square object-cover object-left-top rounded-sm" />
+            className="h-full w-full aspect-square object-cover object-left-top rounded-sm"
+          />
         </div>
       </div>
-      <div
-        className="absolute bottom-0 z-40 inset-x-0 h-40 sm:h-60 bg-gradient-to-t from-white dark:from-black via-white dark:via-black to-transparent w-full pointer-events-none" />
-      <div
-        className="absolute top-0 z-40 inset-x-0 h-40 sm:h-60 bg-gradient-to-b from-white dark:from-black via-transparent to-transparent w-full pointer-events-none" />
+      <div className="absolute bottom-0 z-40 inset-x-0 h-40 sm:h-60 bg-gradient-to-t from-white dark:from-black via-white dark:via-black to-transparent w-full pointer-events-none" />
+      <div className="absolute top-0 z-40 inset-x-0 h-40 sm:h-60 bg-gradient-to-b from-white dark:from-black via-transparent to-transparent w-full pointer-events-none" />
     </div>
   );
 };
@@ -174,7 +163,7 @@ export const SkeletonTwo = () => {
     './ss4.png',
     './ss5.png'
   ];
-
+ 
   const imageVariants = {
     whileHover: {
       scale: 1.1,
@@ -187,11 +176,10 @@ export const SkeletonTwo = () => {
       zIndex: 100,
     },
   };
-  
   return (
-    <div className="relative flex flex-col items-start p-4 sm:p-8 gap-4 sm:gap-10 h-full overflow-hidden">
-      {/* First row of images */}
-      <div className="flex flex-row -ml-4 sm:-ml-20 overflow-x-auto pb-2 w-full">
+    <div className="relative flex flex-col items-start p-8 gap-10 h-full overflow-hidden">
+      {/* TODO */}
+      <div className="flex flex-row -ml-20">
         {images.map((image, idx) => (
           <motion.div
             variants={imageVariants}
@@ -201,19 +189,19 @@ export const SkeletonTwo = () => {
             }}
             whileHover="whileHover"
             whileTap="whileTap"
-            className="rounded-xl -mr-2 sm:-mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden">
+            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
+          >
             <img
               src={image}
               alt="bali images"
               width="500"
               height="500"
-              className="rounded-lg h-16 w-16 sm:h-20 sm:w-20 md:h-40 md:w-40 object-cover shrink-0" />
+              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover shrink-0"
+            />
           </motion.div>
         ))}
       </div>
-      
-      {/* Second row of images */}
-      <div className="flex flex-row overflow-x-auto pb-2 w-full">
+      <div className="flex flex-row">
         {images.map((image, idx) => (
           <motion.div
             key={"images-second" + idx}
@@ -223,118 +211,77 @@ export const SkeletonTwo = () => {
             variants={imageVariants}
             whileHover="whileHover"
             whileTap="whileTap"
-            className="rounded-xl -mr-2 sm:-mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden">
+            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
+          >
             <img
               src={image}
               alt="bali images"
               width="500"
               height="500"
-              className="rounded-lg h-16 w-16 sm:h-20 sm:w-20 md:h-40 md:w-40 object-cover shrink-0" />
+              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover shrink-0"
+            />
           </motion.div>
         ))}
       </div>
-      
-      {/* Gradient overlays */}
-      <div className="absolute left-0 z-[100] inset-y-0 w-12 sm:w-20 bg-gradient-to-r from-white dark:from-black to-transparent h-full pointer-events-none" />
-      <div className="absolute right-0 z-[100] inset-y-0 w-12 sm:w-20 bg-gradient-to-l from-white dark:from-black to-transparent h-full pointer-events-none" />
+ 
+      <div className="absolute left-0 z-[100] inset-y-0 w-20 bg-gradient-to-r from-white dark:from-black to-transparent  h-full pointer-events-none" />
+      <div className="absolute right-0 z-[100] inset-y-0 w-20 bg-gradient-to-l from-white dark:from-black  to-transparent h-full pointer-events-none" />
     </div>
   );
 };
+ 
 
 export const SkeletonFour = () => {
   return (
-    <div className="h-40 sm:h-60 md:h-60 flex flex-col items-center relative bg-transparent dark:bg-transparent mt-4 sm:mt-10">
-      <Globe className="absolute -right-10 md:-right-10 -bottom-56 sm:-bottom-72 md:-bottom-72" />
-    </div>
-  );
-};
-
-export const Globe = ({
-  className
-}) => {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    let phi = 0;
-
-    if (!canvasRef.current) return;
-
-    // Adjust globe size based on screen size
-    const isMobile = window.innerWidth < 768;
-    const globeSize = isMobile ? 300 : 600;
-
-    const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: globeSize * 2,
-      height: globeSize * 2,
-      phi: 0,
-      theta: 0,
-      dark: 1,
-      diffuse: 1.2,
-      mapSamples: 16000,
-      mapBrightness: 6,
-      baseColor: [0.3, 0.3, 0.3],
-      markerColor: [0.1, 0.8, 1],
-      glowColor: [1, 1, 1],
-      markers: [
-        // longitude latitude
-        { location: [37.7595, -122.4367], size: 0.03 },
-        { location: [40.7128, -74.006], size: 0.1 },
-      ],
-      onRender: (state) => {
-        // Called on every animation frame.
-        // `state` will be an empty object, return updated params.
-        state.phi = phi;
-        phi += 0.01;
-      },
-    });
-
-    // Handle resize
-    const handleResize = () => {
-      globe.destroy();
-      // Recreate globe with new size
-      const newSize = window.innerWidth < 768 ? 300 : 600;
-      createGlobe(canvasRef.current, {
-        devicePixelRatio: 2,
-        width: newSize * 2,
-        height: newSize * 2,
-        phi: 0,
-        theta: 0,
-        dark: 1,
-        diffuse: 1.2,
-        mapSamples: 16000,
-        mapBrightness: 6,
-        baseColor: [0.3, 0.3, 0.3],
-        markerColor: [0.1, 0.8, 1],
-        glowColor: [1, 1, 1],
-        markers: [
-          { location: [37.7595, -122.4367], size: 0.03 },
-          { location: [40.7128, -74.006], size: 0.1 },
-        ],
-        onRender: (state) => {
-          state.phi = phi;
-          phi += 0.01;
-        },
-      });
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      globe.destroy();
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{ 
-        width: '100%', 
-        maxWidth: '600px', 
-        height: 'auto', 
-        aspectRatio: 1 
+    <div className="h-full w-full max-w-xs sm:max-w-md mx-auto">
+      <div className="relative w-full">
+        <div className="flex flex-row justify-between space-x-4 sm:space-x-8">
+          <div className="w-1/4 sm:w-1/5">
+          <motion.div
+      className="w-24 h-24 sm:w-32 sm:h-32 flex justify-center items-center relative"
+      animate={{ rotate: 360 }}
+      transition={{
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 6,
+        ease: "linear",
       }}
-      className={className} />
+    >
+      {/* Center dot */}
+      <div className="w-4 h-4 bg-emerald-400 rounded-full z-10" />
+
+      {/* Signal arcs */}
+      {[1, 2, 3].map((level) => (
+        <motion.div
+          key={level}
+          className={`absolute rounded-full border border-emerald-400`}
+          style={{
+            width: `${level * 16}px`,
+            height: `${level * 16}px`,
+          }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 0.6, scale: 1 }}
+          transition={{
+            duration: 1.5,
+            delay: level * 0.3,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </motion.div>
+          </div>
+          <div className="w-3/4 sm:w-4/5">
+            <h3 className="text-sm sm:text-xl text-white font-semibold">
+              Secure File Sharing
+            </h3>
+            <p className="text-xs sm:text-base text-neutral-500 font-normal">
+              Share your files securely without needing the same Wi-Fi network.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };

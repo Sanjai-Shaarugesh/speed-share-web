@@ -6,7 +6,7 @@ import {
   FooterContent,
 } from "../../ui/footer";
 import LaunchUI from "../../logos/launch-ui";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { cn } from "@shadcn/ui/lib/utils";
 
 interface FooterLink {
@@ -57,7 +57,7 @@ export default function FooterSection({
       ],
     },
   ],
-  copyright = "© 2025 Mikołaj Dobrucki. All rights reserved",
+  copyright = "© 2025 Sanjai-Shaarugesh. All rights reserved",
   policies = [
     { text: "Privacy Policy", href: "https://www.launchuicomponents.com/" },
     { text: "Terms of Service", href: "https://www.launchuicomponents.com/" },

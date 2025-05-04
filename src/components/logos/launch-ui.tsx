@@ -1,9 +1,9 @@
 const LaunchUI = (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
   <img
-    src="./icon.svg"
-    width={24}
-    height={24}
-    alt="Launch UI Logo"
+    src="https://raw.githubusercontent.com/Sanjai-Shaarugesh/speed-share-web/88ac4b721406fab186f0c47a1be2ae7506aa314c/public/icon.svg"
+    width={50}
+    height={50}
+    alt="Speed-share"
     {...props}
   />
 );

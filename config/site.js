@@ -6,9 +6,11 @@ export const siteConfig = {
     url: "https://Speed-shares.vercel.app",
     ogImage: "/og-image.png",
     links: {
-      twitter: "https://twitter.com/speedshare",
-      github: "https://github.com/yourusername/speed-share",
-      linkedin: "https://linkedin.com/company/speed-share"
+      x: "https://twitter.com/speedshare",
+      github: "https://x.com/shaarugesh28091",
+      linkedin: "https://www.linkedin.com/in/shaarugesh-sudhakar-462876290/",
+      doc:'https://github.com/Sanjai-Shaarugesh/Speed-share',
+      licence:'https://github.com/Sanjai-Shaarugesh/Speed-share/blob/main/LICENSE'
     },
     creator: "Your Name",
     keywords: [
