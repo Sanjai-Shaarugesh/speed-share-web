@@ -50,7 +50,7 @@ export default function FeaturesSectionDemo() {
         </h4>
         <div className="mx-auto flex flex-col sm:flex-row justify-center gap-4 my-6 sm:my-10 max-w-md sm:max-w-lg">
         <a 
-  href="https://github.com/Sanjai-Shaarugesh/Speed-share/blob/main/APP/Speed-share.apk" 
+  href="https://github.com/Sanjai-Shaarugesh/Speed-share/raw/main/APP/Speed-share.apk" 
   download 
   className="w-full sm:w-auto"
 >
