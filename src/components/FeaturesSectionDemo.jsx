@@ -49,7 +49,7 @@ export default function FeaturesSectionDemo() {
           Packed with thousands of features
         </h4>
         <div className="mx-auto flex flex-col sm:flex-row justify-center gap-4 my-6 sm:my-10 max-w-md sm:max-w-lg">
-          <a href="APK/Speed-share.apk" download className="w-full sm:w-auto">
+          <a href="https://github.com/Sanjai-Shaarugesh/Speed-share/blob/main/APP/Speed-share.apk" download className="w-full sm:w-auto">
             <Button className="w-full sm:w-auto flex items-center justify-center gap-2">
               Download for Android
               <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
