@@ -5,7 +5,9 @@ import { useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 import { Button } from "../../@shadcn/ui/components/ui/button";
-
+import { RippleButton } from './animate-ui/buttons/ripple';
+import { LiquidButton } from './animate-ui/buttons/liquid';
+import {ArrowRight} from 'lucide-react';
 
 export default function FeaturesSectionDemo() {
   const features = [
@@ -30,7 +32,7 @@ export default function FeaturesSectionDemo() {
         "To know how to use watch this video 🎬",
       skeleton: <SkeletonThree />,
       className:
-        "col-span-1 lg:col-span-3 lg:border-r  dark:border-neutral-800",
+        "col-span-1 lg:col-span-3 lg:border-r dark:border-neutral-800",
     },
     {
       title: "Share you're files with in seconds without any network dependencies 🛜 ",
@@ -41,57 +43,41 @@ export default function FeaturesSectionDemo() {
     },
   ];
   return (
-    <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto">
-      <div className="px-8">
+    <div className="relative z-20 py-6 lg:py-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 sm:px-8">
         <h4
-          className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+          className="text-2xl sm:text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
           Packed with thousands of features
         </h4>
-        <div className='mx-80 my-10'> <a href="APK/Speed-share.apk" download> <Button>Download for Android <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="96" height="96" viewBox="0 0 48 48">
-        <path fill="#30dc80" d="M24,14.088C11.427,14.088,1.108,23.716,0,36h48C46.892,23.716,36.573,14.088,24,14.088z M33.179,27.079c0-1.104,0.895-1.999,1.999-1.999c1.104,0,1.999,0.895,1.999,1.999c0,1.104-0.895,1.999-1.999,1.999	C34.074,29.078,33.179,28.183,33.179,27.079z M12.822,29.078c-1.104,0-1.999-0.895-1.999-1.999c0-1.104,0.895-1.999,1.999-1.999	s1.999,0.895,1.999,1.999C14.821,28.183,13.926,29.078,12.822,29.078z"></path><path fill="#30dc80" d="M34.038,19.313c-0.14,0-0.281-0.035-0.41-0.11c-0.393-0.227-0.527-0.729-0.301-1.122l5.197-9.008	c0.227-0.394,0.729-0.529,1.122-0.301c0.393,0.227,0.527,0.729,0.301,1.122l-5.197,9.008C34.598,19.166,34.322,19.313,34.038,19.313	z"></path><path fill="#30dc80" d="M13.962,19.313c-0.284,0-0.56-0.148-0.712-0.411L8.054,9.894C7.827,9.501,7.962,8.999,8.354,8.772	c0.392-0.228,0.895-0.093,1.122,0.301l5.197,9.008c0.227,0.394,0.092,0.896-0.301,1.122C14.243,19.278,14.102,19.313,13.962,19.313z"></path>
-        </svg></Button></a> <a href='https://speed-shares.vercel.app/' target="_blank"> <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block ml-10">
-  <span className="absolute inset-0 overflow-hidden rounded-full">
-    <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-  </span>
-  <div className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 ">
-    <span>
-      Go to Speed-share
-    </span>
-    <svg
-      fill="none"
-      height="16"
-      viewBox="0 0 24 24"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M10.75 8.75L14.25 12L10.75 15.25"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-      />
-    </svg>
-  </div>
-  <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
-</button></a> </div>
-        
-       
-
+        <div className='mx-auto flex flex-col sm:flex-row justify-center gap-4 my-6 sm:my-10 max-w-md sm:max-w-lg'> 
+          <a href="APK/Speed-share.apk" download className="w-full sm:w-auto"> 
+            <Button className="w-full sm:w-auto flex items-center justify-center gap-2">
+              Download for Android 
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
+                <path fill="#30dc80" d="M24,14.088C11.427,14.088,1.108,23.716,0,36h48C46.892,23.716,36.573,14.088,24,14.088z M33.179,27.079c0-1.104,0.895-1.999,1.999-1.999c1.104,0,1.999,0.895,1.999,1.999c0,1.104-0.895,1.999-1.999,1.999	C34.074,29.078,33.179,28.183,33.179,27.079z M12.822,29.078c-1.104,0-1.999-0.895-1.999-1.999c0-1.104,0.895-1.999,1.999-1.999	s1.999,0.895,1.999,1.999C14.821,28.183,13.926,29.078,12.822,29.078z"></path><path fill="#30dc80" d="M34.038,19.313c-0.14,0-0.281-0.035-0.41-0.11c-0.393-0.227-0.527-0.729-0.301-1.122l5.197-9.008	c0.227-0.394,0.729-0.529,1.122-0.301c0.393,0.227,0.527,0.729,0.301,1.122l-5.197,9.008C34.598,19.166,34.322,19.313,34.038,19.313	z"></path><path fill="#30dc80" d="M13.962,19.313c-0.284,0-0.56-0.148-0.712-0.411L8.054,9.894C7.827,9.501,7.962,8.999,8.354,8.772	c0.392-0.228,0.895-0.093,1.122,0.301l5.197,9.008c0.227,0.394,0.092,0.896-0.301,1.122C14.243,19.278,14.102,19.313,13.962,19.313z"></path>
+              </svg>
+            </Button>
+          </a> 
+          <a href='https://speed-shares.vercel.app/' target="_blank" className="w-full sm:w-auto">
+            <LiquidButton className="w-full sm:w-auto flex items-center justify-center gap-2">
+              Visite Speed-share <ArrowRight />
+            </LiquidButton>
+          </a>
+        </div>
         <p
-          className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+          className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
           From Image generation to video generation, Everything AI has APIs for
           literally everything. It can even create this website copy for you.
         </p>
       </div>
-      <div className="relative ">
+      <div className="relative">
         <div
-          className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800">
+          className="grid grid-cols-1 lg:grid-cols-6 mt-8 sm:mt-12 xl:border rounded-md dark:border-neutral-800">
           {features.map((feature) => (
             <FeatureCard key={feature.title} className={feature.className}>
               <FeatureTitle>{feature.title}</FeatureTitle>
               <FeatureDescription>{feature.description}</FeatureDescription>
-              <div className=" h-full w-full">{feature.skeleton}</div>
+              <div className="h-full w-full">{feature.skeleton}</div>
             </FeatureCard>
           ))}
         </div>
@@ -116,7 +102,7 @@ const FeatureTitle = ({
 }) => {
   return (
     <p
-      className=" max-w-5xl mx-auto text-left tracking-tight text-black dark:text-white text-xl md:text-2xl md:leading-snug">
+      className="max-w-5xl mx-auto text-left tracking-tight text-black dark:text-white text-lg sm:text-xl md:text-2xl md:leading-snug">
       {children}
     </p>
   );
@@ -128,7 +114,7 @@ const FeatureDescription = ({
   return (
     <p
       className={cn(
-        "text-sm md:text-base  max-w-4xl text-left mx-auto",
+        "text-sm md:text-base max-w-4xl text-left mx-auto",
         "text-neutral-500 text-center font-normal dark:text-neutral-300",
         "text-left max-w-sm mx-0 md:text-sm my-2"
       )}>
@@ -139,10 +125,10 @@ const FeatureDescription = ({
 
 export const SkeletonOne = () => {
   return (
-    <div className="relative flex py-8 px-2 gap-10 h-full">
+    <div className="relative flex py-4 sm:py-8 px-2 gap-4 sm:gap-10 h-full">
       <div
-        className="w-full  p-5  mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full">
-        <div className="flex flex-1 w-full h-full flex-col space-y-2  ">
+        className="w-full p-2 sm:p-5 mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full">
+        <div className="flex flex-1 w-full h-full flex-col space-y-2">
           {/* TODO */}
           <img
             src="./ss.png"
@@ -153,29 +139,29 @@ export const SkeletonOne = () => {
         </div>
       </div>
       <div
-        className="absolute bottom-0 z-40 inset-x-0 h-60 bg-gradient-to-t from-white dark:from-black via-white dark:via-black to-transparent w-full pointer-events-none" />
+        className="absolute bottom-0 z-40 inset-x-0 h-40 sm:h-60 bg-gradient-to-t from-white dark:from-black via-white dark:via-black to-transparent w-full pointer-events-none" />
       <div
-        className="absolute top-0 z-40 inset-x-0 h-60 bg-gradient-to-b from-white dark:from-black via-transparent to-transparent w-full pointer-events-none" />
+        className="absolute top-0 z-40 inset-x-0 h-40 sm:h-60 bg-gradient-to-b from-white dark:from-black via-transparent to-transparent w-full pointer-events-none" />
     </div>
   );
 };
 
 export const SkeletonThree = () => {
   return (
-    <div className="relative flex gap-10 h-full group/image w-full max-w-xl mx-auto">
-          <div className="w-full bg-transparent dark:bg-transparent group h-full">
-            <div className="flex flex-col space-y-2 w-full h-full relative">
-              <video
-                controls
-                poster="./speed-shares.vercel.app_answer.html.png" // Replace with your thumbnail
-                className="w-full aspect-video rounded-sm transition-all duration-200"
-              >
-                <source src="./ss.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
+    <div className="relative flex gap-4 sm:gap-10 h-full group/image w-full max-w-xl mx-auto">
+      <div className="w-full bg-transparent dark:bg-transparent group h-full">
+        <div className="flex flex-col space-y-2 w-full h-full relative">
+          <video
+            controls
+            poster="./speed-shares.vercel.app_answer.html.png" // Replace with your thumbnail
+            className="w-full aspect-video rounded-sm transition-all duration-200"
+          >
+            <source src="./ss.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
+      </div>
+    </div>
   );
 };
 
@@ -201,11 +187,11 @@ export const SkeletonTwo = () => {
       zIndex: 100,
     },
   };
+  
   return (
-    <div
-      className="relative flex flex-col items-start p-8 gap-10 h-full overflow-hidden">
-      {/* TODO */}
-      <div className="flex flex-row -ml-20">
+    <div className="relative flex flex-col items-start p-4 sm:p-8 gap-4 sm:gap-10 h-full overflow-hidden">
+      {/* First row of images */}
+      <div className="flex flex-row -ml-4 sm:-ml-20 overflow-x-auto pb-2 w-full">
         {images.map((image, idx) => (
           <motion.div
             variants={imageVariants}
@@ -215,17 +201,19 @@ export const SkeletonTwo = () => {
             }}
             whileHover="whileHover"
             whileTap="whileTap"
-            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden">
+            className="rounded-xl -mr-2 sm:-mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden">
             <img
               src={image}
               alt="bali images"
               width="500"
               height="500"
-              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover shrink-0" />
+              className="rounded-lg h-16 w-16 sm:h-20 sm:w-20 md:h-40 md:w-40 object-cover shrink-0" />
           </motion.div>
         ))}
       </div>
-      <div className="flex flex-row">
+      
+      {/* Second row of images */}
+      <div className="flex flex-row overflow-x-auto pb-2 w-full">
         {images.map((image, idx) => (
           <motion.div
             key={"images-second" + idx}
@@ -235,29 +223,28 @@ export const SkeletonTwo = () => {
             variants={imageVariants}
             whileHover="whileHover"
             whileTap="whileTap"
-            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden">
+            className="rounded-xl -mr-2 sm:-mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden">
             <img
               src={image}
               alt="bali images"
               width="500"
               height="500"
-              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover shrink-0" />
+              className="rounded-lg h-16 w-16 sm:h-20 sm:w-20 md:h-40 md:w-40 object-cover shrink-0" />
           </motion.div>
         ))}
       </div>
-      <div
-        className="absolute left-0 z-[100] inset-y-0 w-20 bg-gradient-to-r from-white dark:from-black to-transparent  h-full pointer-events-none" />
-      <div
-        className="absolute right-0 z-[100] inset-y-0 w-20 bg-gradient-to-l from-white dark:from-black  to-transparent h-full pointer-events-none" />
+      
+      {/* Gradient overlays */}
+      <div className="absolute left-0 z-[100] inset-y-0 w-12 sm:w-20 bg-gradient-to-r from-white dark:from-black to-transparent h-full pointer-events-none" />
+      <div className="absolute right-0 z-[100] inset-y-0 w-12 sm:w-20 bg-gradient-to-l from-white dark:from-black to-transparent h-full pointer-events-none" />
     </div>
   );
 };
 
 export const SkeletonFour = () => {
   return (
-    <div
-      className="h-60 md:h-60  flex flex-col items-center relative bg-transparent dark:bg-transparent mt-10">
-      <Globe className="absolute -right-10 md:-right-10 -bottom-80 md:-bottom-72" />
+    <div className="h-40 sm:h-60 md:h-60 flex flex-col items-center relative bg-transparent dark:bg-transparent mt-4 sm:mt-10">
+      <Globe className="absolute -right-10 md:-right-10 -bottom-56 sm:-bottom-72 md:-bottom-72" />
     </div>
   );
 };
@@ -272,10 +259,14 @@ export const Globe = ({
 
     if (!canvasRef.current) return;
 
+    // Adjust globe size based on screen size
+    const isMobile = window.innerWidth < 768;
+    const globeSize = isMobile ? 300 : 600;
+
     const globe = createGlobe(canvasRef.current, {
       devicePixelRatio: 2,
-      width: 600 * 2,
-      height: 600 * 2,
+      width: globeSize * 2,
+      height: globeSize * 2,
       phi: 0,
       theta: 0,
       dark: 1,
@@ -298,15 +289,52 @@ export const Globe = ({
       },
     });
 
+    // Handle resize
+    const handleResize = () => {
+      globe.destroy();
+      // Recreate globe with new size
+      const newSize = window.innerWidth < 768 ? 300 : 600;
+      createGlobe(canvasRef.current, {
+        devicePixelRatio: 2,
+        width: newSize * 2,
+        height: newSize * 2,
+        phi: 0,
+        theta: 0,
+        dark: 1,
+        diffuse: 1.2,
+        mapSamples: 16000,
+        mapBrightness: 6,
+        baseColor: [0.3, 0.3, 0.3],
+        markerColor: [0.1, 0.8, 1],
+        glowColor: [1, 1, 1],
+        markers: [
+          { location: [37.7595, -122.4367], size: 0.03 },
+          { location: [40.7128, -74.006], size: 0.1 },
+        ],
+        onRender: (state) => {
+          state.phi = phi;
+          phi += 0.01;
+        },
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+
     return () => {
       globe.destroy();
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1 }}
+      style={{ 
+        width: '100%', 
+        maxWidth: '600px', 
+        height: 'auto', 
+        aspectRatio: 1 
+      }}
       className={className} />
   );
 };

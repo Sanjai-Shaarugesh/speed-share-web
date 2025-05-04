@@ -14,6 +14,7 @@ import '../styles/global.css';
 import Home from './Home';
 import BackgroundLinesDemo from './BackgroundLinesDemo';
 import  FeaturesSectionDemo from './FeaturesSectionDemo';
+import FooterSection from './FooterSection';
 
 export default function NavbarDemo() {
   // References for the sections we want to scroll to
@@ -152,6 +153,8 @@ export default function NavbarDemo() {
      <div ref={featuresRef} id="features">
      <FeaturesSectionDemo/>
      </div>
+      
+      <FooterSection/>
       
       
     </div>
